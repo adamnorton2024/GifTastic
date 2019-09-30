@@ -11,30 +11,64 @@ var topics = ["sports fail", "minions", "prank", "shark", "batman", "driving", "
             url: queryURL,
             method: "GET"
         }).then(function(giphy){
-            console.log(giphy);
-            $("#gif-area").text(JSON.stringify(giphy));
+            //console.log(giphy);
+            var giphyArr = giphy.data;
+            //console.log(giphyArr);
 
-            for(i=0; i < giphy.length; i++){
+            for(var i=0; i < giphyArr.length; i++){
+                var rating = giphyArr[i].rating;
+                //console.log(rating);
+                var imageURL = giphyArr[i].images.fixed_height_still.url;
+                //console.log(imageURL);
 
-            }
+                var topicDiv = $("<div class='topic'>");
+                var pTagRating = $("<p>").text("Rating: " + rating);
+                var imgTag = $("<img class='giphy'>").attr("src", imageURL);
+                imgTag.attr("data-state", "still");
+                console.log("data-state is set to: " + imgTag.attr("data-state"));
+                imgTag.attr("data-still", imageURL);
+                imgTag.attr("data-animate", giphyArr[i].images.fixed_height.url);
 
-            var topicDiv = $("<div class='topic'>");
-            //var rating = giphy[i].rating;
-           // var tRating = $("<p>").text("Rating: " + rating);
 
-            var imageURL = giphy[i].url;
-            console.log(imageURL);
-            var image = $("<img>").attr("src", imageURL);
+                topicDiv.append(imgTag);
+                topicDiv.append(pTagRating);
 
-            topicDiv.append(image);
-            //topicDiv.append(tRating);
+                $("#gif-area").prepend(topicDiv);
+            };
 
-            console.log(topicDiv);
-            $("#gif-area").prepend(topicDiv);
+            
         });
     };
 
-    // render a topic button for each entry in the array
+    $(document).on("click", ".giphy", function () {
+        console.log("Gif Clicked.");
+        var state = $(this).attr("data-state");
+        console.log(this);
+        console.log("state is set to: " + state);
+
+        if (state === "still") {
+            console.log("Should animate");
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            console.log("Should stop");
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
+
+    $(document).on("click", "#add-topic",function (){
+        event.preventDefault();
+        console.log("Add button clicked.");
+        var newTopic = $("#topic-input").val().trim();
+        topics.push(newTopic);
+        console.log(topics);
+        renderButtons();
+    });
+
+    
+
+
     function renderButtons() {
         $("#buttons-area").empty();
 
@@ -46,15 +80,6 @@ var topics = ["sports fail", "minions", "prank", "shark", "batman", "driving", "
             $("#buttons-area").append(topic);
         }
     };
-
-    $("#add-topic").on("click", function(event){
-        event.preventDefault();
-
-        var topic = $("#topic-input").val().trim();
-        topics.push(topic);
-
-        renderButtons();
-    });
 
     $(document).on("click", ".topic-btn", displayGiphy);
 
