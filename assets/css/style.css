@@ -1,5 +1,14 @@
-header{
-    background-color: darkslateblue;
-    color: white;
-    height: 10%;
+.jumbotron {
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+    /* height: 100vh; */
+}
+
+body {
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.btn-size {
+    width: 10em;
 }

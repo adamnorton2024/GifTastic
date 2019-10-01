@@ -5,27 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GifTastic</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 <body>
 
-   <header id="jumbotron">
-       <h1>Silly Giphy Mayhem!</h1>
-   </header>
+    <div class="jumbotron jumbotron-fluid p-5 text-light">
+        <div class="container">
+            <h1 class="display-4">Giphy Madness!</h1>
+            <p class="lead">Simply click a button below to find laughs of all kinds!</p>
+            <hr class="my-4">
+            
+            <div class="container" id="buttons-area">Buttons GO HERE</div>
 
-    <div class="container" id="buttons-area">Buttons GO HERE</div>    
+            <p class="mt-3">Add additional topics of your choosing below:</p>
+            <form class="form-inline">
+                <div class="form-group mx-sm-3 mb-2" id="add-topic">
+                    <label for="topic-input"></label>
+                    <input type="text" class="form-control" id="topic-input" placeholder="New Topic...">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2" id="add-topic" value="Add a Topic">Add a Topic</button>
+            </form>
+            
+            <div class="container mt-3" id="gif-area"></div>
+        </div>
+        
 
-    <div class="container" id="add-topic">Add Topic GO HERE</div>
+
+    </div>
+    
+    <!-- <div class="container" id="add-topic">Add Topic GO HERE</div>
     <form id="topic-form">
         <label for="topic-input">Add a Topic</label>
         <input type="text" id="topic-input"><br>
     
-        
+    
         <input id="add-topic" type="submit" value="Add a Topic">
-    </form>
-
-    <div class="container" id="gif-area">GIFs GO HERE</div>
+    </form> -->
+    
+    
+   
 
 
 

@@ -1,4 +1,4 @@
-var topics = ["sports fail", "minions", "prank", "shark", "batman", "driving", "office", "crossfit", "homer", "trippy"];
+var topics = ["Sports Fail", "Minions", "Prank", "Shark", "Batman", "Driving", "Office", "Crossfit", "Homer", "Trippy"];
 
 
 
@@ -73,7 +73,7 @@ var topics = ["sports fail", "minions", "prank", "shark", "batman", "driving", "
         $("#buttons-area").empty();
 
         for(var i = 0; i < topics.length; i++){
-            var topic = $("<button>");
+            var topic = $("<button class='btn btn-light mr-3  mb-3 btn-size'>");
             topic.addClass("topic-btn");
             topic.attr("data-name", topics[i]);
             topic.text(topics[i]);
