@@ -45,27 +45,6 @@ var topics = ["Sports Fail", "Minions", "Prank", "Shark", "Batman", "Driving", "
                 $("#gif-area").prepend(topicDiv);
             };
 
-            // for(var i=0; i < giphyArr.length; i++){
-            //     var rating = giphyArr[i].rating;
-            //     //console.log(rating);
-            //     var imageURL = giphyArr[i].images.fixed_height_still.url;
-            //     //console.log(imageURL);
-
-            //     var topicDiv = $("<div class='topic'>");
-            //     var pTagRating = $("<p>").text("Rating: " + rating);
-            //     var imgTag = $("<img class='giphy'>").attr("src", imageURL);
-            //     imgTag.attr("data-state", "still");
-            //     console.log("data-state is set to: " + imgTag.attr("data-state"));
-            //     imgTag.attr("data-still", imageURL);
-            //     imgTag.attr("data-animate", giphyArr[i].images.fixed_height.url);
-
-
-            //     topicDiv.append(imgTag);
-            //     topicDiv.append(pTagRating);
-
-            //     $("#gif-area").prepend(topicDiv);
-            // };
-
             
         });
     };
